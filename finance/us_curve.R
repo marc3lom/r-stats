@@ -1,8 +1,9 @@
 rm(list=ls(all=TRUE))
 par(mfrow=c(1,1))
 
-# setwd("g:/Diest/marcelom/R/strategy/")
-setwd("c:/Hvymtl/usr/r/code/taa/")
+# setwd("g:/Diest/marcelom/R/taa/")
+# setwd("c:/Hvymtl/usr/r/code/taa/")
+# setwd('/home/marcelom/.local/code/r/')
 
 library(tidyverse)
 library(tidyquant)
