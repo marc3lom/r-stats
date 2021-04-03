@@ -2,8 +2,8 @@ rm(list=ls(all=TRUE))
 par(mfrow=c(1,1))
 
 # setwd("g:/Diest/marcelom/R/politics/")
-setwd("c:/Hvymtl/usr/R/code/covid/")
-# setwd('/home/marcelocm/.local/code/')
+# setwd("c:/Hvymtl/usr/R/code/covid/")
+# setwd('/home/marcelocm/.local/code/r/')
 
 library(tidyverse)
 library(tidyquant)
@@ -160,7 +160,7 @@ p_jhu_1 <- ggplot() +
 p_jhu_2 <- ggplot() +
   geom_bar(data = df_jhu_deaths_plot, mapping = aes(x = date, y = deaths_7d, color = country, fill = country), position="stack", stat="identity") +
   geom_line(data = df_jhu_deaths_plot, mapping = aes(x = date, y = deaths_7d), size = 0.875) +
-  labs(title = NULL, subtitle = "Óbitos Novos por Dia por 1,000,000 (MM 7 Dias)", caption = 'Fonte: Johns Hopkins University', x = NULL) +
+  labs(title = NULL, subtitle = "Ã“bitos Novos por Dia por 1,000,000 (MM 7 Dias)", caption = 'Fonte: Johns Hopkins University', x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   # scale_y_comma(name = NULL) +
   scale_y_comma(limits = c(-5,35), breaks = seq(0,30,10), name = NULL) +
@@ -185,7 +185,7 @@ p_jhu_3 <- ggplot() +
 p_jhu_4 <- ggplot() +
   geom_bar(data = df_jhu_deaths_new_plot, mapping = aes(x = date, y = deaths_7d, color = country, fill = country), position="stack", stat="identity") +
   geom_line(data = df_jhu_deaths_new_plot, mapping = aes(x = date, y = deaths_7d), size = 0.875) +
-  labs(title = "COVID-19", subtitle = "Óbitos Novos por Dia (MM 7 Dias)", caption = 'Fonte: Johns Hopkins University', x = NULL) +
+  labs(title = "COVID-19", subtitle = "Ã“bitos Novos por Dia (MM 7 Dias)", caption = 'Fonte: Johns Hopkins University', x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(name = NULL) +
   # scale_y_comma(limits = c(-500,2500), breaks = seq(0,2000,1000), name = NULL) +
@@ -243,7 +243,7 @@ p_ctp_2 <- ggplot() +
   geom_bar(data = df_ctp_plot, mapping = aes(x = date, y = sos, color = sos, fill = sos), position="stack", stat="identity", show.legend = TRUE) +
   geom_line(data = df_ctp_plot, mapping = aes(x = date, y = sos_7d), size = 1.25) +
   geom_text(data = filter(df_ctp_plot, date == tail(date, n = 1)), aes(label = comma(sos_7d, accuracy = 1), x = date, y = sos_7d), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  labs(title = NULL, subtitle = "Hospitalizações", caption = NULL, x = NULL) +
+  labs(title = NULL, subtitle = "HospitalizaÃ§Ãµes", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   # scale_y_comma(name = NULL) +
   scale_y_comma(limits = c(0,175000), breaks = seq(0,150000,50000), name = NULL) +
@@ -255,7 +255,7 @@ p_ctp_3 <- ggplot() +
   geom_bar(data = df_ctp_plot, mapping = aes(x = date, y = deaths, color = deaths, fill = deaths), position="stack", stat="identity", show.legend = TRUE) +
   geom_line(data = df_ctp_plot, mapping = aes(x = date, y = deaths_7d), size = 1.25) +
   geom_text(data = filter(df_ctp_plot, date == tail(date, n = 1)), aes(label = comma(deaths_7d, accuracy = 1), x = date, y = deaths_7d), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  labs(title = NULL, subtitle = "Óbitos", caption = "Fonte: The COVID Tracking Project", x = NULL) +
+  labs(title = NULL, subtitle = "Ã“bitos", caption = "Fonte: The COVID Tracking Project", x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   # scale_y_comma(name = NULL) +
   scale_y_comma(limits = c(0,5500), breaks = seq(0,5000,1000), name = NULL) +
@@ -267,17 +267,17 @@ p_ctp_3 <- ggplot() +
 
 p1 <- ggplot() +
   geom_bar(data = df_nyt, mapping = aes(x = date, y = deaths, color = deaths, fill = deaths), position="stack", stat="identity") +
-  labs(title = "EUA: COVID-19", subtitle = "Número de Óbitos", caption = NULL, x = NULL) +
+  labs(title = "EUA: COVID-19", subtitle = "NÃºmero de Ã“bitos", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
-  # scale_y_comma(limits = c(-25000,225000), breaks = seq(0,200000,50000), name = "Óbitos") +
-  scale_y_comma(name = "Óbitos") +
+  # scale_y_comma(limits = c(-25000,225000), breaks = seq(0,200000,50000), name = "Ã“bitos") +
+  scale_y_comma(name = "Ã“bitos") +
   scale_x_date(date_breaks = "3 weeks", date_labels = "%d %b") +
   scale_color_viridis_c(option = "E") +
   scale_fill_viridis_c(option = "E")
 
 p2 <- ggplot() +
   geom_bar(data = df_nyt, mapping = aes(x = date, y = cases, color = cases, fill = cases), position="stack", stat="identity") +
-  labs(title = "EUA: COVID-19", subtitle = "Número de Casos", caption = "Fonte: New York Times", x = NULL) +
+  labs(title = "EUA: COVID-19", subtitle = "NÃºmero de Casos", caption = "Fonte: New York Times", x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   # scale_y_comma(limits = c(-1000000,8000000), breaks = seq(0,6000000,2000000), name = "Casos") +
   scale_y_comma(name = "Casos") +
@@ -289,7 +289,7 @@ p3 <- ggplot() +
   geom_bar(data = df_nyt, mapping = aes(x = date, y = d_deaths, color = deaths, fill = deaths), position="stack", stat="identity", show.legend = TRUE) +
   geom_line(data = df_nyt, mapping = aes(x = date, y = mt_d_deaths, color = mt_d_deaths), size = 1.25) +
   geom_text(data = filter(df_nyt, date == tail(date, n = 1)), aes(label = comma(mt_d_deaths, accuracy = 1), x = date, y = mt_d_deaths), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  labs(title = "US: COVID-19", subtitle = "Óbitos", caption = NULL, x = NULL) +
+  labs(title = "US: COVID-19", subtitle = "Ã“bitos", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(name = NULL) +
   scale_x_date(limits = c(filter(df_nyt, date == head(date, n = 1))[,1],ed), date_breaks = "4 weeks", date_labels = "%d %b") +
@@ -310,10 +310,10 @@ p4 <- ggplot() +
 p5 <- ggplot() +
   geom_line(data = df_nyt, mapping = aes(x = date, y = mt_d_deaths, color = mt_d_deaths), size = 1.25) +
   geom_text(data = filter(df_nyt, date == tail(date, n = 1)), aes(label = comma(mt_d_deaths, accuracy = 1), x = date, y = mt_d_deaths), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  labs(title = "US: COVID-19", subtitle = "Variação Diária dos Óbitos", caption = NULL, x = NULL) +
+  labs(title = "US: COVID-19", subtitle = "VariaÃ§Ã£o DiÃ¡ria dos Ã“bitos", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
-  # scale_y_comma(limits = c(-500,3500), breaks = seq(0,3000,1000), name = "Óbitos") +
-  scale_y_comma(name = "Óbitos") +
+  # scale_y_comma(limits = c(-500,3500), breaks = seq(0,3000,1000), name = "Ã“bitos") +
+  scale_y_comma(name = "Ã“bitos") +
   scale_x_date(limits = c(filter(df_nyt, date == head(date, n = 1))[,1],ed), date_breaks = "4 weeks", date_labels = "%d %b") +
   scale_color_viridis_c(option = "E") +
   scale_fill_viridis_c(option = "E")
@@ -321,7 +321,7 @@ p5 <- ggplot() +
 p6 <- ggplot() +
   geom_line(data = df_nyt, mapping = aes(x = date, y = mt_d_cases, color = mt_d_cases), size = 1.25) +
   geom_text(data = filter(df_nyt, date == tail(date, n = 1)), aes(label = comma(mt_d_cases, accuracy = 1), x = date, y = mt_d_cases), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  labs(title = "US: COVID-19", subtitle = "Variação Diária dos Casos", caption = "Fonte: New York Times", x = NULL) +
+  labs(title = "US: COVID-19", subtitle = "VariaÃ§Ã£o DiÃ¡ria dos Casos", caption = "Fonte: New York Times", x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   # scale_y_comma(limits = c(-5000,85000), breaks = seq(0,80000,10000), name = "Casos") +
   scale_y_comma(name = "Casos") +
@@ -341,11 +341,11 @@ p100 <- ggplot(data = df_nyt, aes(x = date)) +
   geom_line(mapping = aes(y = mt_d_cases/coeff, color = mt_d_cases), size = 1.25) +
   geom_text(data = filter(df_nyt, date == tail(date, n = 1)), aes(label = comma(mt_d_deaths, accuracy = 1), x = date, y = mt_d_deaths), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
   geom_text(data = filter(df_nyt, date == tail(date, n = 1)), aes(label = comma(mt_d_cases, accuracy = 1), x = date, y = mt_d_cases/coeff), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  annotate("text", x = as.Date("2020-05-04"), y = 1250, label = "Óbitos", size = 5, color = "black", fontface = "bold") +
+  annotate("text", x = as.Date("2020-05-04"), y = 1250, label = "Ã“bitos", size = 5, color = "black", fontface = "bold") +
   annotate("text", x = as.Date("2020-07-27"), y = 7500, label = "Casos", size = 5, color = "black", fontface = "bold") +
-  labs(title = "EUA: COVID-19", subtitle = "Médias Móveis (7 Dias)", caption = NULL, x = NULL) +
+  labs(title = "EUA: COVID-19", subtitle = "MÃ©dias MÃ³veis (7 Dias)", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
-  scale_y_comma(limits = c(0,22500), breaks = seq(0,20000,5000), name = "Óbitos", sec.axis = sec_axis(trans = ~.*coeff, breaks = seq(0,200000,50000), name = "Casos")) +
+  scale_y_comma(limits = c(0,22500), breaks = seq(0,20000,5000), name = "Ã“bitos", sec.axis = sec_axis(trans = ~.*coeff, breaks = seq(0,200000,50000), name = "Casos")) +
   scale_x_date(limits = c(filter(df_nyt, date == head(date, n = 1))[,1],ed), date_breaks = "6 weeks", date_labels = "%d %b") +
   scale_color_viridis_c(option = "E") +
   scale_fill_viridis_c(option = "E")
@@ -354,16 +354,16 @@ p100 <- ggplot(data = df_nyt, aes(x = date)) +
 
 p8 <- ggplot() +
   geom_bar(data = df_st_nyt, mapping = aes(x = date, y = deaths, color = state, fill = state), position="stack", stat="identity") +
-  labs(title = "EUA: COVID-19", subtitle = "Número de Óbitos", caption = "Fonte: New York Times", x = NULL) +
+  labs(title = "EUA: COVID-19", subtitle = "NÃºmero de Ã“bitos", caption = "Fonte: New York Times", x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
-  scale_y_comma(name = "Óbitos") +
+  scale_y_comma(name = "Ã“bitos") +
   scale_x_date(date_breaks = "3 weeks", date_labels = "%d %b") +
   scale_color_viridis_d(option = "E") +
   scale_fill_viridis_d(option = "E")
 
 p9 <- ggplot() +
   geom_bar(data = df_st_nyt, mapping = aes(x = date, y = cases, color = state, fill = state), position="stack", stat="identity") +
-  labs(title = "EUA: COVID-19", subtitle = "Número de Casos", caption = "Fonte: New York Times", x = NULL) +
+  labs(title = "EUA: COVID-19", subtitle = "NÃºmero de Casos", caption = "Fonte: New York Times", x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(name = "Casos") +
   scale_x_date(date_breaks = "3 weeks", date_labels = "%d %b") +
@@ -373,10 +373,10 @@ p9 <- ggplot() +
 p10 <- ggplot() +
   geom_bar(data = df_st_nyt, mapping = aes(x = date, y = d_deaths, color = state, fill = state), position="stack", stat="identity") +
   # geom_smooth(data = df_st_nyt, mapping = aes(x = date, y = delta)) +
-  labs(title = "US: COVID-19", subtitle = "Variação Diária dos Óbitos", caption = "Fonte: New York Times", x = NULL) +
+  labs(title = "US: COVID-19", subtitle = "VariaÃ§Ã£o DiÃ¡ria dos Ã“bitos", caption = "Fonte: New York Times", x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   # scale_y_comma(limits = c(62.5,187.5), breaks = seq(75,175,25), name = "Casos") +
-  scale_y_comma(name = "Óbitos") +
+  scale_y_comma(name = "Ã“bitos") +
   scale_x_date(date_breaks = "3 weeks", date_labels = "%d %b") +
   # scale_size_manual(values = c(1.25, 1.25)) +
   scale_color_viridis_d(option = "E") +
@@ -385,7 +385,7 @@ p10 <- ggplot() +
 p11 <- ggplot() +
   geom_bar(data = df_st_nyt, mapping = aes(x = date, y = d_cases, color = state, fill = state), position="stack", stat="identity") +
   # geom_smooth(data = df_st_nyt, mapping = aes(x = date, y = delta)) +
-  labs(title = "US: COVID-19", subtitle = "Variação Diária dos Casos", caption = "Fonte: New York Times", x = NULL) +
+  labs(title = "US: COVID-19", subtitle = "VariaÃ§Ã£o DiÃ¡ria dos Casos", caption = "Fonte: New York Times", x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   # scale_y_comma(limits = c(62.5,187.5), breaks = seq(75,175,25), name = "Casos") +
   scale_y_comma(name = "Casos") +
@@ -396,16 +396,16 @@ p11 <- ggplot() +
 
 p12 <- ggplot(data = df_rtl_plot, mapping = aes(x = date)) +
   geom_bar(mapping = aes(y = new_deaths, color = region, group = region, fill = region), position="stack", stat="identity") +
-  labs(title = "US: COVID-19", subtitle = "Variação Diária dos Óbitos", caption = NULL, x = NULL) +
+  labs(title = "US: COVID-19", subtitle = "VariaÃ§Ã£o DiÃ¡ria dos Ã“bitos", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
-  scale_y_comma(limits = c(0,3500), breaks = seq(0,3000,1000), name = "Óbitos") +
+  scale_y_comma(limits = c(0,3500), breaks = seq(0,3000,1000), name = "Ã“bitos") +
   scale_x_date(date_breaks = "3 weeks", date_labels = "%d %b") +
   scale_color_viridis_d(option = "E") +
   scale_fill_viridis_d(option = "E")
 
 p13 <- ggplot(data = df_rtl_plot, mapping = aes(x = date)) +
   geom_bar(mapping = aes(y = new_cases, color = region, group = region, fill = region), position="stack", stat="identity") +
-  labs(title = "US: COVID-19", subtitle = "Variação Diária dos Casos", caption = "Fonte: The COVID Tracking Project", x = NULL) +
+  labs(title = "US: COVID-19", subtitle = "VariaÃ§Ã£o DiÃ¡ria dos Casos", caption = "Fonte: The COVID Tracking Project", x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(limits = c(0,110000), breaks = seq(0,100000,20000), name = "Casos") +
   scale_x_date(date_breaks = "3 weeks", date_labels = "%d %b") +
@@ -426,7 +426,7 @@ p_vax_1 <- df_owid_vaccinations %>%
   ggplot() +
   # geom_bar(mapping = aes(x = date, y = d_vax, color = location, fill = location), position="stack", stat="identity", show.legend = F) +
   geom_area(mapping = aes(x = date, y = d_vax, color = location, fill = location), size = 1.25) +
-  labs(title = "COVID-19", subtitle = "Vacinações por Dia", caption = NULL, x = NULL) +
+  labs(title = "COVID-19", subtitle = "VacinaÃ§Ãµes por Dia", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(accuracy = 1, name = NULL) +
   scale_x_date(date_breaks = '3 weeks', date_labels = "%d %b") +
@@ -444,7 +444,7 @@ p_vax_2 <- df_owid_vaccinations %>%
   ggplot() +
   # geom_bar(mapping = aes(x = date, y = d_vax, color = location, fill = location), position="stack", stat="identity", show.legend = F) +
   geom_area(mapping = aes(x = date, y = d_vax_per_mil, color = location, fill = location), size = 1.25) +
-  labs(title = "COVID-19", subtitle = "Vacinações por Milhão", caption = 'Fonte: Our World in Data', x = NULL) +
+  labs(title = "COVID-19", subtitle = "VacinaÃ§Ãµes por MilhÃ£o", caption = 'Fonte: Our World in Data', x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(accuracy = 1, name = NULL) +
   scale_x_date(date_breaks = '3 weeks', date_labels = "%d %b") +
@@ -460,7 +460,7 @@ p_vax_3 <- df_owid_vaccinations %>%
   dplyr::arrange(date) %>%
   ggplot() +
   geom_area(mapping = aes(x = date, y = vax_per_hundred, color = location, fill = location), size = 1.25) +
-  labs(title = "COVID-19", subtitle = "Vacinações por 100 Habitantes", caption = NULL, x = NULL) +
+  labs(title = "COVID-19", subtitle = "VacinaÃ§Ãµes por 100 Habitantes", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(accuracy = 1, name = NULL) +
   scale_x_date(date_breaks = '3 weeks', date_labels = "%d %b") +
@@ -476,7 +476,7 @@ p_vax_4 <- df_owid_vaccinations %>%
   dplyr::arrange(date) %>%
   ggplot() +
   geom_area(mapping = aes(x = date, y = vax_fully_per_hundred, color = location, fill = location), size = 1.25) +
-  labs(title = "COVID-19", subtitle = "Vacinações Completas por 100 Habitantes", caption = NULL, x = NULL) +
+  labs(title = "COVID-19", subtitle = "VacinaÃ§Ãµes Completas por 100 Habitantes", caption = NULL, x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(accuracy = 1, name = NULL) +
   scale_x_date(date_breaks = '3 weeks', date_labels = "%d %b") +
@@ -516,7 +516,7 @@ p_owid_bra_2 <- ggplot(data = df_owid_bra, mapping = aes(x = date)) +
   geom_bar(mapping = aes(y = new_deaths, color = new_deaths, fill = new_deaths), position="stack", stat="identity", show.legend = TRUE) +
   geom_line(mapping = aes(y = new_deaths_7d), size = 1.25) +
   geom_text(data = filter(df_owid_bra, date == tail(date, n = 1)), aes(label = comma(new_deaths_7d, accuracy = 1), x = date, y = new_deaths_7d), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  labs(title = "Brasil: COVID-19", subtitle = "Óbitos", caption = 'Fonte: Our World in Data', x = NULL) +
+  labs(title = "Brasil: COVID-19", subtitle = "Ã“bitos", caption = 'Fonte: Our World in Data', x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   # scale_y_comma(name = NULL) +
   scale_y_comma(limits = c(0,4500), breaks = seq(0,4000,1000), name = NULL) +
@@ -560,7 +560,7 @@ p_jhu_ctry_2 <- df_jhu_deaths %>%
   geom_bar(mapping = aes(x = date, y = values, color = values, fill = values), position="stack", stat="identity") +
   geom_line(mapping = aes(x = date, y = values_7d), size = 1.125) +
   # geom_text(data = filter(df_jhu_deaths_plot_ctry, date == tail(date, n = 1)), aes(label = comma(values_7d, accuracy = .01), x = date, y = values_7d), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  labs(title = NULL, subtitle = "Óbitos Novos por Dia por 1,000,000 (MM 7 Dias)", caption = 'Fonte: Johns Hopkins University', x = NULL) +
+  labs(title = NULL, subtitle = "Ã“bitos Novos por Dia por 1,000,000 (MM 7 Dias)", caption = 'Fonte: Johns Hopkins University', x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(name = NULL) +
   scale_x_date(date_breaks = "26 weeks", date_labels = "%b %y") +
@@ -596,7 +596,7 @@ p_jhu_ctry_4 <- df_jhu_deaths_new %>%
   geom_bar(mapping = aes(x = date, y = values, color = values, fill = values), position="stack", stat="identity") +
   geom_line(mapping = aes(x = date, y = values_7d), size = 1.125) +
   # geom_text(data = filter(df_jhu_deaths_new_plot_ctry, date == tail(date, n = 1)), aes(label = comma(values_7d, accuracy = 1), x = date, y = values_7d), hjust = -.25, position = position_dodge(.9), size = 3.5, fontface = "bold") +
-  labs(title = "COVID-19", subtitle = "Óbitos Novos por Dia (MM 7 Dias)", caption = 'Fonte: Johns Hopkins University', x = NULL) +
+  labs(title = "COVID-19", subtitle = "Ã“bitos Novos por Dia (MM 7 Dias)", caption = 'Fonte: Johns Hopkins University', x = NULL) +
   theme(legend.position="none", legend.title = element_blank(), legend.text = element_text(face = "bold"), plot.caption = element_text(face = "bold")) +
   scale_y_comma(name = NULL) +
   scale_x_date(date_breaks = "26 weeks", date_labels = "%b %y") +
