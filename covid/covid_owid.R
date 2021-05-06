@@ -4,7 +4,7 @@ rm(list=ls(all=TRUE))
 par(mfrow=c(1,1))
 
 # setwd('g:/Diest/marcelom/R/covid/')
-setwd('d:/usr/marcelom/OneDrive/Code/R/covid/')
+# setwd('d:/usr/marcelom/OneDrive/Code/R/covid/')
 # setwd('/home/marcelom/.local/code/r/covid/')
 
 ### calling libraries
