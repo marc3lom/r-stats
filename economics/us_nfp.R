@@ -4,7 +4,7 @@ par(mfrow=c(1,1))
 
 # setwd('g:/Diest/marcelom/R/economics/')
 # setwd('d:/usr/marcelom/OneDrive/Code/R/economics/')
-setwd('/home/marcelom/.local/code/r/economics/')
+# setwd('/home/marcelom/.local/code/r/economics/')
 
 # locale settings
 # windows
@@ -12,7 +12,6 @@ setwd('/home/marcelom/.local/code/r/economics/')
 # Sys.setlocale('LC_TIME', 'Portuguese')
 # linux
 # Sys.setlocale('LC_ALL', 'en_US.UTF-8')
-Sys.setlocale('LC_ALL', 'pt_BR.UTF-8')
 # Sys.setlocale('LC_TIME', 'pt_BR.UTF-8')
 
 ### calling libraries
@@ -43,7 +42,7 @@ library(fredr)
 
 library(dotenv)
 # load_dot_env(file = 'd:/usr/marcelom/OneDrive/Code/R/.env')
-load_dot_env(file = '/home/marcelom/.env')
+# load_dot_env(file = '/home/marcelom/.env')
 # calling .env variable example
 fredr_set_key(Sys.getenv('fred_api_key'))
 # quandl_api_key(Sys.getenv('quandl_key'))
